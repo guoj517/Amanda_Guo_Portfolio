@@ -70,7 +70,22 @@ class Ball {
     this.y += this.yspeed * this.direction;
   }
 
-
+  // Bounce when touch the edge of the canvas
+  turn() {
+    if (this.x < 0) {
+      this.x = 0;
+      this.direction = -this.direction;
+    } else if (this.y < 0) {
+      this.y = 0;
+      this.direction = -this.direction;
+    } else if (this.x > width - 20) {
+      this.x = width - 20;
+      this.direction = -this.direction;
+    } else if (this.y > height - 20) {
+      this.y = height - 20;
+      this.direction = -this.direction;
+    }
+  }
 
   // Add to xspeed and yspeed based on
   // the change in accelerationX value
